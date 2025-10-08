@@ -161,6 +161,8 @@ def run():
     sns.countplot(ax=axes[0], x='NumOfProducts', hue='Exited', data=df, palette='cool')
     product_prop.plot(kind='bar', stacked=True, color=['#A1D99B','#FC9272'], ax=axes[1])
     axes[1].set_title('Proporsi Churn berdasarkan Jumlah Produk')
+    axes[1].legend(['Tidak Churn', 'Churn'], bbox_to_anchor=(1.05, 1), loc='upper left')
+    axes[1].set_xticklabels(product_prop.index.astype(str), rotation=0)
     for i, val in enumerate(product_prop.iloc[:, 1]):
         base = product_prop.iloc[i, 0]
         if pd.notnull(val): axes[1].text(i, base + val/2, f'{val:.1%}', ha='center')
