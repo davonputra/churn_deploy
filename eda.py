@@ -121,11 +121,14 @@ def run():
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     sns.countplot(ax=axes[0], x='Geography', hue='Exited', data=df, palette='husl')
     axes[0].set_title('Jumlah Nasabah per Negara berdasarkan Churn')
+    axes[0].legend(title='Exited', labels=['Tidak Churn', 'Churn'])
     geo_prop.plot(kind='bar', stacked=True, color=['#FFB6C1','#20B2AA'], ax=axes[1])
     axes[1].set_title('Proporsi Churn per Negara')
+    axes[1].set_xticklabels(geo_prop.index, rotation=0)
+    axes[1].legend(['Tidak Churn','Churn'], bbox_to_anchor=(1.05, 1), loc='upper left')
     for i in range(len(geo_prop)):
-        val = geo_prop.iloc[i, 1]
-        base = geo_prop.iloc[i, 0]
+        val = geo_prop.iloc[i, 1]  
+        base = geo_prop.iloc[i, 0]  
         axes[1].text(i, base + val / 2, f'{val:.0%}', ha='center')
     st.pyplot(fig)
     st.markdown("""
