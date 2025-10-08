@@ -7,7 +7,7 @@ with st.sidebar:
     page = st.radio('Page', ('EDA','Model Demo'))
 
     st.write('# About')
-    st.write('Page ini adalah informasi data dan demo dari model prediksi player rating')
+    st.write('Page ini adalah informasi data dan demo dari model prediksi nasabah yang churn')
 
 if page == "EDA":
     eda.run()
