@@ -143,6 +143,7 @@ def run():
     fig, axes = plt.subplots(1, 3, figsize=(16, 5))
     sns.countplot(ax=axes[0], x='Gender', hue='Exited', data=df, palette='pastel')
     axes[0].set_title('Jumlah Nasabah per Gender dan Churn')
+    axes[0].legend(title='Exited', labels=['Tidak Churn', 'Churn'])
     axes[1].pie(gender_group.loc['Female'], labels=['Tidak Churn','Churn'],
                 autopct='%1.1f%%', colors=['#ADD8E6','#F4A261'])
     axes[1].set_title('Proporsi Churn - Female')
