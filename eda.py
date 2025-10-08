@@ -104,7 +104,7 @@ def run():
     active_prop.plot(kind='bar', stacked=True, color=['#A1D99B','#FC9272'], ax=axes[1])
     axes[1].set_title('Proporsi Churn berdasarkan Aktivitas Nasabah')
     axes[1].set_xticks([0, 1])
-    axes[1].set_xticklabels(['0', '1'])
+    axes[1].set_xticklabels(['0', '1'], rotation=0)
     axes[1].legend(['Tidak Churn','Churn'], bbox_to_anchor=(1.05, 1), loc='upper left')
     for i, val in enumerate(active_prop[1]):
         axes[1].text(i, active_prop[0][i] + val / 2, f'{val:.1%}', ha='center')
