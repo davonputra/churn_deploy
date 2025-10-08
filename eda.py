@@ -159,6 +159,7 @@ def run():
     product_prop = df.groupby('NumOfProducts')['Exited'].value_counts(normalize=True).unstack()
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     sns.countplot(ax=axes[0], x='NumOfProducts', hue='Exited', data=df, palette='cool')
+    axes[0].legend(title='Exited', labels=['Tidak Churn', 'Churn'])
     product_prop.plot(kind='bar', stacked=True, color=['#A1D99B','#FC9272'], ax=axes[1])
     axes[1].set_title('Proporsi Churn berdasarkan Jumlah Produk')
     axes[1].legend(['Tidak Churn', 'Churn'], bbox_to_anchor=(1.05, 1), loc='upper left')
