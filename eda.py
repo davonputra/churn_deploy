@@ -165,9 +165,12 @@ def run():
     axes[1].set_title('Proporsi Churn berdasarkan Jumlah Produk')
     axes[1].legend(['Tidak Churn', 'Churn'], bbox_to_anchor=(1.05, 1), loc='upper left')
     axes[1].set_xticklabels(product_prop.index.astype(str), rotation=0)
-    for i, val in enumerate(product_prop.iloc[:, 1]):
-        base = product_prop.iloc[i, 0]
-        if pd.notnull(val): axes[1].text(i, base + val/2, f'{val:.1%}', ha='center')
+    for i in range(len(product_prop)):
+        val = product_prop.iloc[i, 1] 
+        base = product_prop.iloc[i, 0] if not pd.isna(product_prop.iloc[i, 0]) else 0  
+        if not pd.isna(val):
+            y_pos = base + val / 2 if base > 0 else val / 2  
+            axes[1].text(i, y_pos, f'{val:.1%}', ha='center')
     st.pyplot(fig)
     st.markdown("""
     - Dari visualisasi di atas, nasabah yang memiliki 1 produk memang menyumbang jumlah churn paling banyak, namun jika dilihat dari persentasenya, justru nasabah dengan 3 dan 4 produk memiliki tingkat churn yang jauh lebih tinggi, yaitu 83% dan bahkan 100%. Sementara itu, nasabah dengan 2 produk merupakan kelompok terbesar dan paling stabil, karena hanya sekitar 8% yang churn. Hal ini menunjukkan bahwa memiliki terlalu banyak produk justru bisa meningkatkan risiko churn, kemungkinan karena beban, kebingungan, atau ketidakpuasan. Bank perlu lebih berhati hati dalam menawarkan banyak produk sekaligus, dan memastikan bahwa setiap penawaran benar-benar relevan dan sesuai kebutuhan nasabah.
