@@ -17,7 +17,7 @@ def run():
     ''')
 
     # Dataset
-    st.header("Dataset")
+    st.header("Dataset ")
     st.markdown('''
     Dataset yang digunakan adalah data nasabah dari Bank XYZ yang terdiri dari informasi demografi,
     aktivitas perbankan, dan atribut lainnya. Dataset ini terdiri dari 10.000 nasabah dan telah melalui proses pembersihan data,
