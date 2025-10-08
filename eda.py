@@ -93,7 +93,7 @@ def run():
     """)
 
     # Aktivitas vs Churn
-    st.subheader("Aktivitas Nasabah vs Churn")
+    st.subheader("Aktivitas Nasabah Dengan Target")
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
     sns.countplot(ax=axes[0], x='IsActiveMember', hue='Exited', data=df, palette='Set2')
     axes[0].set_title('Jumlah Nasabah berdasarkan Aktivitas dan Churn')
@@ -116,7 +116,7 @@ def run():
     """)
 
     # Negara vs Churn
-    st.subheader("Negara vs Churn")
+    st.subheader("Fitur Negara Dengan Target")
     geo_prop = df.groupby('Geography')['Exited'].value_counts(normalize=True).unstack()
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     sns.countplot(ax=axes[0], x='Geography', hue='Exited', data=df, palette='husl')
@@ -138,7 +138,7 @@ def run():
     """)
 
     # Gender vs Churn
-    st.subheader("Gender vs Churn")
+    st.subheader("Fitur Gender Dengan Target")
     gender_group = df.groupby('Gender')['Exited'].value_counts(normalize=True).unstack()
     fig, axes = plt.subplots(1, 3, figsize=(16, 5))
     sns.countplot(ax=axes[0], x='Gender', hue='Exited', data=df, palette='pastel')
@@ -156,7 +156,7 @@ def run():
     """)
 
     # Jumlah Produk vs Churn
-    st.subheader("Jumlah Produk vs Churn")
+    st.subheader("Jumlah Produk Dengan Target")
     product_prop = df.groupby('NumOfProducts')['Exited'].value_counts(normalize=True).unstack()
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     sns.countplot(ax=axes[0], x='NumOfProducts', hue='Exited', data=df, palette='cool')
