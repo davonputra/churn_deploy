@@ -34,8 +34,8 @@ def run():
     - **Tenure** : Lama menjadi nasabah (dalam tahun)
     - **Balance** : Jumlah saldo nasabah di rekening bank
     - **NumOfProducts** : Jumlah produk yang digunakan nasabah (tabungan, kartu kredit, pinjaman, dll)
-    - **HasCrCard** : Apakah nasabah memiliki kartu kredit?
-    - **IsActiveMember** : 
+    - **HasCrCard** : Apakah nasabah memiliki kartu kredit (1 = Ya, 0 = Tidak)
+    - **IsActiveMember** : Apakah nasabah aktif menggunakan layanan bank (1 = Aktif, 0 = Tidak Aktif)
     - **EstimatedSalary** : Estimasi gaji tahunan nasabah
     - **Exited** : Status churn
     ''')
@@ -83,7 +83,7 @@ def run():
     """)
 
     # Saldo vs Churn
-    st.subheader("Distribusi Saldo Berdasarkan Status Churn")
+    st.subheader("Distribusi Saldo Dengan Target")
     fig = plt.figure(figsize=(10, 5))
     sns.boxplot(x='Exited', y='Balance', data=df, palette='coolwarm')
     plt.title("Perbandingan Saldo antara Churn dan Tidak Churn")
