@@ -58,7 +58,7 @@ def run():
     sns.countplot(data=df, x='Exited', ax=ax[1], palette='Set2')
     ax[0].set_title("Pie Chart")
     ax[1].set_title("Barchart")
-    ax[1].set_xticklabels(['Tidak Churn', 'Churn'])
+    ax[1].set_xticklabels(['Tidak Churn (0)', 'Churn (1)'])
     st.pyplot(fig)
     st.markdown("""
     **Pie Chart**
